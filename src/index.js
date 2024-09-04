@@ -1,21 +1,36 @@
-// 3 decimal places is common for general use when precision is important but not critical.
-// here use 3 decimal place
-
+/**
+ * It includes functionality for rounding numbers, validating fractions, and converting between decimal and fraction formats.
+ */
 class FractionConverter {
+  // Default decimal point precision for rounding
   static decimalPoint = 3;
 
+  /**
+   * Compute the Greatest Common Divisor (GCD) of two numbers using the Euclidean algorithm.
+   * @param {number} a - The first number.
+   * @param {number} b - The second number.
+   * @returns {number} - The GCD of the two numbers.
+   */
   static computeGCD(a, b) {
     if (!b) return a;
     return FractionConverter.computeGCD(b, a % b);
   }
 
-  //   rounded numbers with 3 decimal place
+  /**
+   * Round a number to the specified decimal point precision.
+   * @param {number} num - The number to round.
+   * @returns {number} - The rounded number.
+   */
   static roundNumber(num) {
     const rounded = parseFloat(num.toFixed(FractionConverter.decimalPoint));
     return rounded;
   }
 
-  // Setter method to set the value of the decimal point
+  /**
+   * Set the decimal point precision for rounding operations.
+   * @param {number} decimalPoint - The number of decimal places to use.
+   * @throws {Error} - Throws an error if the decimal point is not a non-negative number.
+   */
   static setDecimalPoint(decimalPoint) {
     if (typeof decimalPoint !== "number" || decimalPoint < 0) {
       throw new Error("Decimal point must be a non-negative number.");
@@ -23,7 +38,12 @@ class FractionConverter {
     FractionConverter.decimalPoint = decimalPoint;
   }
 
-  // Convert decimal number to fraction
+  /**
+   * Convert a decimal number to a fraction string.
+   * @param {number} decimalNumber - The decimal number to convert.
+   * @returns {string} - The fraction representation of the decimal number.
+   * @throws {Error} - Throws an error if the input is not a valid number.
+   */
   static convertDecimalToFraction(decimalNumber) {
     if (typeof decimalNumber !== "number" || isNaN(decimalNumber)) {
       throw new Error("Input must be a valid number.");
@@ -49,7 +69,11 @@ class FractionConverter {
     return `${fractionNumerator / gcdValue}/${fractionDenominator / gcdValue}`;
   }
 
-  //   // Validate that input is a valid fraction string
+  /**
+   * Validate that the input is a valid fraction string in the form 'numerator/denominator'.
+   * @param {string} fractionStr - The fraction string to validate.
+   * @throws {Error} - Throws an error if the input is not a valid fraction string.
+   */
   static validateFractionInput(fractionStr) {
     const fractionPattern = /^\d+(\.\d+)?\/\d+(\.\d+)?$/;
     if (typeof fractionStr !== "string" || !fractionPattern.test(fractionStr)) {
@@ -59,7 +83,12 @@ class FractionConverter {
     }
   }
 
-  // Convert fraction string to decimal number
+  /**
+   * Convert a fraction string to a decimal number.
+   * @param {string} fractionStr - The fraction string to convert.
+   * @returns {number} - The decimal representation of the fraction.
+   * @throws {Error} - Throws an error if the fraction string is invalid or the denominator is zero.
+   */
   static convertFractionToDecimal(fractionStr) {
     FractionConverter.validateFractionInput(fractionStr);
     const [numerator, denominator] = fractionStr.split("/").map(Number);
@@ -69,3 +98,5 @@ class FractionConverter {
     return FractionConverter.roundNumber(numerator / denominator);
   }
 }
+
+export default FractionConverter;
