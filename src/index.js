@@ -27,4 +27,10 @@ class FractionConverter {
 
     return `${fractionNumerator / gcdValue}/${fractionDenominator / gcdValue}`;
   }
+
+  // Convert fraction string to decimal number
+  static convertFractionToDecimal(fractionStr) {
+    const [numerator, denominator] = fractionStr.split("/").map(Number);
+    return numerator / denominator;
+  }
 }
