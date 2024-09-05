@@ -1,7 +1,7 @@
 {
   "name": "fraction-utils",
   "version": "1.0.0",
-  "description": "A utility library for converting between decimals and fractions, simplifying fractions, and handling mixed numbers.",
+  "description": "A utility library for converting between decimal and fraction formats, validating fractions, and setting a specified decimal point precision.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,15 @@
     "type": "git",
     "url": "git+ssh://git@github.com/syamjir/fraction-utils.git"
   },
+  "keywords": [
+    "fraction",
+    "decimal",
+    "converter",
+    "utility",
+    "math",
+    "rounding",
+    "validation"
+  ],
   "author": "syamjir",
   "license": "ISC",
   "bugs": {
