@@ -1,6 +1,6 @@
 # FRACTION-UTILS
 
-`fraction-utils` is a JavaScript library that provides functionality for rounding numbers, validating fractions, and converting between decimal and fraction formats. This package is useful for applications that need to perform accurate fractional and decimal arithmetic.
+`fraction-utils` is a JavaScript library that provides functionality for rounding numbers, validating fractions,simplify fraction, and converting between decimal and fraction formats. This package is useful for applications that need to perform accurate fractional and decimal arithmetic.
 
 ## Features
 
@@ -9,6 +9,7 @@
 - **Convert Decimal to Fraction:** Convert a decimal number to its fractional representation.
 - **Validate Fractions:** Validate fraction strings in the form 'numerator/denominator'.
 - **Convert Fraction to Decimal:** Convert a fraction string to its decimal representation.
+- **Simplify a given fraction:** Dividing the numerator and denominator by their greatest common divisor.
 
 ## Installation
 
@@ -37,4 +38,7 @@ console.log(fraction); // "3/4"
 
 const decimal = FractionConverter.convertFractionToDecimal("3/4");
 console.log(decimal); // 0.75
+
+const simplifiedFraction = FractionConverter.simplifyFraction(10, 20);
+console.log(simplifiedFraction); // Output: "1/2"
 ```
