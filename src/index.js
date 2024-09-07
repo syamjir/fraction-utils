@@ -126,6 +126,14 @@ class FractionConverter {
     // Simplify the fraction by dividing both the numerator and denominator by the GCD
     return `${numerator / gcdValue}/${denominator / gcdValue}`;
   }
+  /**
+   * Check if a given value is an integer.
+   * @param {number} value - The value to check.
+   * @returns {boolean} - Returns true if the value is an integer, false otherwise.
+   */
+  static checkIfInteger(value) {
+    return Number.isInteger(value);
+  }
 }
 
 export default FractionConverter;

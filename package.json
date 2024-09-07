@@ -1,6 +1,6 @@
 {
   "name": "fraction-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A utility library for converting between decimal and fraction formats, validating fractions, and setting a specified decimal point precision.",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,19 @@
     "utility",
     "math",
     "rounding",
-    "validation"
+    "validation",
+    "simplification",
+    "gcd",
+    "greatest common divisor",
+    "number conversion",
+    "fraction to decimal",
+    "decimal to fraction",
+    "precision",
+    "ratio",
+    "numerator",
+    "denominator",
+    "fractions",
+    "math utility"
   ],
   "author": "syamjir",
   "license": "ISC",
