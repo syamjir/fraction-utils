@@ -1,6 +1,6 @@
 # FRACTION-UTILS
 
-`fraction-utils` is a JavaScript library that provides functionality for rounding numbers, validating fractions,simplify fraction,check if a number is an integer and converting between decimal and fraction formats. This package is useful for applications that need to perform accurate fractional and decimal arithmetic.
+`fraction-utils` is a JavaScript library that provides functionality for rounding numbers, validating fractions,simplify fraction,check if a number is an integer,Convert an improper fraction to a mixed number and converting between decimal and fraction formats. This package is useful for applications that need to perform accurate fractional and decimal arithmetic.
 
 ## Features
 
@@ -11,6 +11,7 @@
 - **Convert Fraction to Decimal:** Convert a fraction string to its decimal representation.
 - **Simplify a given fraction:** Dividing the numerator and denominator by their greatest common divisor.
 - **Check if the value is an integer:** Determine whether the given value is an integer
+- **Convert an improper fraction to a mixed number.**
 
 ## Installation
 
@@ -45,4 +46,7 @@ console.log(simplifiedFraction); // Output: "1/2"
 
 const isInteger = FractionConverter.checkIfInteger(5);
 console.log(isInteger); // true
+
+const mixedNumber = FractionConverter.convertImproperToMixedNumber(10, 3);
+console.log(mixedNumber); // 3 1/3
 ```

@@ -1,5 +1,5 @@
 /**
- * It includes functionality for rounding numbers, validating fractions, and converting between decimal and fraction formats.
+ * It includes functionality for rounding numbers, validating fractions, converting between decimal, simplify a given fraction and fraction formats and and converting improper fractions to mixed numbers.
  */
 class FractionConverter {
   // Default decimal point precision for rounding
@@ -48,7 +48,7 @@ class FractionConverter {
     if (typeof decimalNumber !== "number" || isNaN(decimalNumber)) {
       throw new Error("Input must be a valid number.");
     }
-    decimalNumber = this.roundNumber(decimalNumber);
+    decimalNumber = FractionConverter.roundNumber(decimalNumber);
 
     const decimalStr = decimalNumber.toString();
     const [integerPart, fractionalPart] = decimalStr.split(".");
@@ -133,6 +133,53 @@ class FractionConverter {
    */
   static checkIfInteger(value) {
     return Number.isInteger(value);
+  }
+
+  /**
+   * Convert an improper fraction to a mixed number.
+   * @param {number} numerator - The numerator of the improper fraction.
+   * @param {number} denominator - The denominator of the improper fraction.
+   * @returns {string} - Returns the mixed number in the format of 'wholeNumber remainder/denominator' or just 'wholeNumber' if there's no remainder.
+   * @throws {Error} - Throws an error if the inputs are invalid or the denominator is zero.
+   */
+  static convertImproperToMixedNumber(numerator, denominator) {
+    // Input validation: check if inputs are valid numbers
+    if (
+      typeof numerator !== "number" ||
+      typeof denominator !== "number" ||
+      isNaN(numerator) ||
+      isNaN(denominator)
+    ) {
+      throw new Error("Numerator and denominator must be valid numbers");
+    }
+
+    // Check for zero denominator
+    if (denominator === 0) {
+      throw new Error("Denominator cannot be zero");
+    }
+
+    // Handle negative fractions
+    const sign =
+      (numerator < 0 && denominator < 0) ||
+      (numerator > 0 && denominator < 0) ||
+      (numerator < 0 && denominator > 0)
+        ? -1
+        : 1;
+    numerator = Math.abs(numerator);
+    denominator = Math.abs(denominator);
+
+    const wholeNumberPart = Math.floor(numerator / denominator) * sign;
+    const remainder = numerator % denominator;
+
+    if (remainder === 0) {
+      return `${wholeNumberPart}`;
+    }
+
+    return `${FractionConverter.roundNumber(
+      wholeNumberPart
+    )} ${FractionConverter.roundNumber(
+      remainder
+    )}/${FractionConverter.roundNumber(denominator)}`;
   }
 }
 

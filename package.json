@@ -1,7 +1,7 @@
 {
   "name": "fraction-utils",
-  "version": "1.0.2",
-  "description": "A utility library for converting between decimal and fraction formats, validating fractions, and setting a specified decimal point precision.",
+  "version": "1.0.3",
+  "description": "A utility package for converting decimal numbers to fractions, simplifying fractions, validating fraction strings, and converting improper fractions to mixed numbers.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,7 @@
     "utility",
     "math",
     "rounding",
+    "mixed-numbers",
     "validation",
     "simplification",
     "gcd",
