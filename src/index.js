@@ -175,11 +175,37 @@ class FractionConverter {
       return `${wholeNumberPart}`;
     }
 
+    if (wholeNumberPart === 0) {
+      return `${FractionConverter.roundNumber(
+        remainder
+      )}/${FractionConverter.roundNumber(denominator)}`;
+    }
+
     return `${FractionConverter.roundNumber(
       wholeNumberPart
     )} ${FractionConverter.roundNumber(
       remainder
     )}/${FractionConverter.roundNumber(denominator)}`;
+  }
+  // Convert decimal number to mixed number
+  /**
+   * Convert a decimal number to a mixed number.
+   * @param {number} decimalNumber - The decimal number to be converted.
+   * @returns {string} - Returns the mixed number in the format of 'wholeNumber remainder/denominator' or just 'wholeNumber' if there's no remainder.
+   * @throws {Error} - Throws an error if the input is invalid or the conversion fails.
+   */
+  static convertDecimalToMixedNumber(decimalNumber) {
+    // Convert the decimal number to a fraction
+    const fraction = FractionConverter.convertDecimalToFraction(decimalNumber);
+
+    // Split the fraction into numerator and denominator and convert them to numbers
+    const [numerator, denominator] = fraction.split("/").map(Number);
+
+    // Convert the improper fraction (numerator/denominator) to a mixed number
+    return FractionConverter.convertImproperToMixedNumber(
+      numerator,
+      denominator
+    );
   }
 }
 
