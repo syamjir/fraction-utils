@@ -1,6 +1,6 @@
 {
   "name": "fraction-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A utility package for converting decimal numbers to fractions, simplifying fractions, validating fraction strings, and converting improper fractions to mixed numbers.",
   "main": "index.js",
   "scripts": {
